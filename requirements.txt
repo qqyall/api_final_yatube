@@ -10,3 +10,4 @@ requests==2.26.0
 djoser
 cryptography
 django-filter
+django-allauth
