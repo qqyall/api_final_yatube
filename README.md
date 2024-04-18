@@ -1,19 +1,22 @@
+# REST API для Yatube
+«API для Yatube» позволяет пользователям социальной сети Yatube публиковать свои посты и управлять подписками через программный интерфейс взаимодействия.
+
 ## Возможности:
 
+- Получение, обновление и проверка JWT авторизации.
 - Получение, создание, обновление, удаление публикаций.
 - Получение, создание, обновление, удаление комментариев к публикациям.
 - Просмотр сообществ и детальной информации о них.
 - Отслеживание подписок на авторов, а так же возможность подписки на интересующего автора.
-- Получение, обновление и проверка JWT авторизации.
 
 ## Установка и запуск проекта в dev-режиме:
-1. [ ] Склонируйте репозиторий:
+- Склонируйте репозиторий:
 
 ```bash
 git clone git@github.com:qqyall/api_final_yatube.git && cd api_yatube
 ```
 
-2. [ ] Создайте и активируйте виртуальное окружение:
+- Создайте и активируйте виртуальное окружение:
 
 ###### Windows:
 ```bash
@@ -36,18 +39,18 @@ source venv/bin/activate
 python3 -m pip install --upgrade pip
 ```
 
-3. [ ] Установите зависимости из файла requirements.txt:
+- Установите зависимости из файла requirements.txt:
 ```bash
 pip install -r requirements.txt
 ``` 
 
-4. [ ] Перейдите в папку с manage.py
+- Перейдите в папку с manage.py
 
 ```bash
 cd api_yatube
 ``` 
 
-5. [ ] Создайте миграции
+- Создайте миграции
 ###### Windows:
 ```bash
 python manage.py makemigrations
@@ -57,7 +60,7 @@ python manage.py makemigrations
 python3 manage.py makemigrations
 ```
 
-6. [ ] Примените миграции
+- Примените миграции
 ###### Windows:
 ```bash
 python manage.py migrate
@@ -67,7 +70,7 @@ python manage.py migrate
 python3 manage.py migrate
 ```
 
-7. [ ] Запустите проект
+- Запустите проект
 ###### Windows:
 ```bash
 python manage.py runserver
@@ -133,7 +136,7 @@ http://localhost:port/redoc/
 
 
 ## Об авторе
-Румянцев Савелий - https://github.com/qqyall
+Румянцев Савелий - https://github.com/qqyall  
 E-mail: radogask9rsd@gmail.com  
 Telegram: @clrblndd  
 Россия, г. Уфа
