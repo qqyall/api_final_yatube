@@ -59,12 +59,12 @@ class CommentViewSet(viewsets.ModelViewSet):
             return (ReadOnly(),)
         return super().get_permissions()
 
-    def get_kwargs(self):
+    def get_post_id_kwarg(self):
         return {'post_id': self.kwargs['post_id']}
 
     def get_queryset(self):
-        return Comment.objects.filter(**self.get_kwargs())
+        return Comment.objects.filter(**self.get_post_id_kwarg())
 
     def perform_create(self, serializer):
         serializer.save(
-            author=self.request.user, **self.get_kwargs())
+            author=self.request.user, **self.get_post_id_kwarg())
