@@ -47,10 +47,6 @@ class PostViewSet(viewsets.ModelViewSet):
             return (ReadOnly(),)
         return super().get_permissions()
 
-    # мб закомментить
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
-
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
@@ -63,10 +59,12 @@ class CommentViewSet(viewsets.ModelViewSet):
             return (ReadOnly(),)
         return super().get_permissions()
 
-    def get_queryset(self):
-        return Comment.objects.filter(post_id=self.kwargs['post_id'])
+    def get_kwargs(self):
+        return {'post_id': self.kwargs['post_id']}
 
-    # мб закомментить
+    def get_queryset(self):
+        return Comment.objects.filter(**self.get_kwargs())
+
     def perform_create(self, serializer):
         serializer.save(
-            author=self.request.user, post_id=self.kwargs['post_id'])
+            author=self.request.user, **self.get_kwargs())
