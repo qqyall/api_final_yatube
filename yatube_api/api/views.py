@@ -32,7 +32,6 @@ class FollowViewSet(CreateModelMixin, ListModelMixin, viewsets.GenericViewSet):
         return Follow.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        serializer.is_valid(raise_exception=True)
         serializer.save(user=self.request.user)
 
 
@@ -49,7 +48,6 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (AuthorOrReadOnly,)
     pagination_class = None
